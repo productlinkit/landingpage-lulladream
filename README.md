@@ -44,8 +44,13 @@ footer.
 The hero fills the viewport with its copy vertically centred. It is sized
 `min-h-[calc(100svh-var(--nav-h))]`, **not** `100svh`: the navigation is sticky
 and sits above the hero in flow, so a full `100svh` pushes the hero past the
-fold by exactly the nav's height at every viewport. `--nav-h` is declared in
-the base layer (65px, 81px from `lg`) beside the header that defines it.
+fold by exactly the nav's height at every viewport.
+
+`--nav-h` (65px, 93px from `lg`, border included) is the single source of truth
+for that height — the header sizes itself from it with
+`h-[calc(var(--nav-h)-1px)]`, so the bar and the hero's fold calculation cannot
+drift apart. Change the nav's height there and nowhere else. The `lg` value is
+set by the 70px logo plus 11px of clearance either side.
 
 `min-h` rather than `h`, so the hero still grows when the content is taller
 than the space — below roughly 800px of viewport height the hero's own content

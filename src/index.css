@@ -141,17 +141,21 @@
    ========================================================================== */
 @layer base {
   /*
-   * Height of the sticky navigation, so the hero can fill exactly the space
-   * below it. Without subtracting this, `100svh` overshoots the first screen
-   * by the nav's height at every viewport.
+   * Height of the sticky navigation, including its 1px bottom border.
+   *
+   * Single source of truth: the header sizes itself from this, and the hero
+   * subtracts it to land exactly on the fold. Without subtracting it, a full
+   * `100svh` hero overshoots the first screen by the nav's height at every
+   * viewport. Change it here only — the two must never drift apart.
    */
   :root {
-    --nav-h: 65px; /* h-16 + 1px border */
+    --nav-h: 65px;
   }
 
   @media (min-width: 64rem) {
     :root {
-      --nav-h: 81px; /* lg:h-20 + 1px border */
+      /* Sized to clear the 70px desktop logo with room to breathe. */
+      --nav-h: 93px;
     }
   }
 

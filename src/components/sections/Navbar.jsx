@@ -30,9 +30,9 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border-default bg-surface-base/90 backdrop-blur-md">
       <Container>
-        <div className="flex h-16 items-center justify-between gap-s5 lg:h-20">
+        <div className="flex h-[calc(var(--nav-h)-1px)] items-center justify-between gap-s5">
           <a href="#home" className="flex shrink-0 items-center rounded-sm" aria-label={`${site.name} — home`}>
-            <Logo className="h-10 lg:h-12" />
+            <Logo className="h-10 lg:h-[70px]" />
           </a>
 
           <nav aria-label="Main" className="hidden items-center gap-s1 lg:flex">

@@ -41,8 +41,16 @@ badges, four story covers) → how it works in 3 steps → voice-narration featu
 → social proof strip → safety & screen-time block → FAQ → footer CTA banner →
 footer.
 
-The hero fills the viewport (`min-h-[100svh]`, so it still grows when the
-content is taller) with the copy vertically centred.
+The hero fills the viewport with its copy vertically centred. It is sized
+`min-h-[calc(100svh-var(--nav-h))]`, **not** `100svh`: the navigation is sticky
+and sits above the hero in flow, so a full `100svh` pushes the hero past the
+fold by exactly the nav's height at every viewport. `--nav-h` is declared in
+the base layer (65px, 81px from `lg`) beside the header that defines it.
+
+`min-h` rather than `h`, so the hero still grows when the content is taller
+than the space — below roughly 800px of viewport height the hero's own content
+(~804px) exceeds the fold and the page scrolls, which is the right behaviour.
+It fits exactly at 1440×900, 1512×982 and 1920×1080.
 
 Its four covers carry the personalisation promise by showing it: two Western
 tales and two Thai ones, spanning three categories. `StoryCover` puts the

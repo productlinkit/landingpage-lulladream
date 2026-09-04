@@ -140,6 +140,21 @@
    BASE
    ========================================================================== */
 @layer base {
+  /*
+   * Height of the sticky navigation, so the hero can fill exactly the space
+   * below it. Without subtracting this, `100svh` overshoots the first screen
+   * by the nav's height at every viewport.
+   */
+  :root {
+    --nav-h: 65px; /* h-16 + 1px border */
+  }
+
+  @media (min-width: 64rem) {
+    :root {
+      --nav-h: 81px; /* lg:h-20 + 1px border */
+    }
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;

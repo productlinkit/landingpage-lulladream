@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-linear-to-b from-surface-raised to-surface-base py-16 lg:py-20"
+      className="relative isolate flex min-h-[calc(100svh-var(--nav-h))] items-center overflow-hidden bg-linear-to-b from-surface-raised to-surface-base py-14 lg:py-10"
     >
       {/* Soft brand wash behind the headline. */}
       <div
@@ -25,7 +25,7 @@ export default function Hero() {
       <Decor name="shapeSparkleAlt" tint={false} className="right-[3%] top-[8%] w-16 opacity-70" />
 
       <Container className="relative w-full">
-        <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-14">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-12">
           {/* Copy — revealed on load, staggered top to bottom. */}
           <div className="flex flex-col items-start gap-s7">
             <Reveal immediate as="p" className="inline-flex items-center gap-s3 rounded-full border border-border-default bg-surface-base px-s5 py-s3 text-xs font-semibold uppercase tracking-[0.14em] text-action-primary-active">
@@ -79,14 +79,14 @@ export default function Hero() {
               aria-hidden="true"
               className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-dream-500/14 blur-[90px]"
             />
-            <ul className="grid grid-cols-2 items-start gap-s5 sm:gap-s7">
+            <ul className="mx-auto grid max-w-[460px] grid-cols-2 items-start gap-s5 sm:gap-s6 lg:max-w-none">
               {hero.covers.map((cover, i) => (
                 <Reveal
                   as="li"
                   key={cover.title}
                   immediate
                   delay={260 + i * 110}
-                  className={i % 2 === 1 ? 'sm:mt-10' : ''}
+                  className={i % 2 === 1 ? 'sm:mt-6' : ''}
                 >
                   <StoryCover image={cover.image} title={cover.title} theme={cover.theme} />
                 </Reveal>
